@@ -4,11 +4,11 @@ Repositório referente ao Bootcamp GoStack 13 da Rocketseat
 
 ## Intro
 
-Bem vindo ao meu repositório do curso! Aqui estão todos os códigos que desenvolvi ao longo do bootcamp, tanto dos módulos principais (Node.js, ReactJS e React Native) quanto dos extras (Bônus e Lives).
+Bem vindo ao meu repositório do curso! Aqui estão todos os códigos que desenvolvi ao longo do bootcamp
 
 ## Organização
 
-Os diretórios estão separados por cinco principais tópicos:
+Os diretórios estão separados por três principais tópicos:
 
 - **backend**: Conteúdo referente ao conteúdo de Node.js
 - **frontend**: Conteúdo referente ao conteúdo de ReactJS
