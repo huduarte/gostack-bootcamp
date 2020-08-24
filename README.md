@@ -8,11 +8,12 @@ Bem vindo ao meu repositório do curso! Aqui estão todos os códigos que desenv
 
 ## Organização
 
-Os diretórios estão separados por três principais tópicos:
+Os diretórios estão separados por quatro principais tópicos:
 
 - **backend**: Conteúdo referente ao conteúdo de Node.js
 - **frontend**: Conteúdo referente ao conteúdo de ReactJS
 - **mobile**: Conteúdo referente ao conteúdo de React Native
+- **typescript**: Conteúdo referente ao conteúdo de Typescript
 
 ## Contato
 
