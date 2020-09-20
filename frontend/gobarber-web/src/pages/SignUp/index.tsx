@@ -3,6 +3,7 @@ import { FiArrowLeft, FiMail, FiLock, FiUser } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 import getValidationErrors from '../../utils/getValidationErros';
 
 import logoImg from '../../assets/logo.svg';
@@ -15,6 +16,7 @@ import { Container, Content, Background } from './styles';
 const SignUp: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
+  // eslint-disable-next-line @typescript-eslint/ban-types
   const handleSubmit = useCallback(async (data: object) => {
     try {
       formRef.current?.setErrors({});
@@ -58,10 +60,10 @@ const SignUp: React.FC = () => {
           <Button type="submit">Cadastrar</Button>
         </Form>
 
-        <a href="criar">
+        <Link to="/">
           <FiArrowLeft />
           Voltar para logon
-        </a>
+        </Link>
       </Content>
     </Container>
   );
