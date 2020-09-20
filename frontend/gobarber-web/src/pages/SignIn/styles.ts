@@ -32,7 +32,7 @@ export const Content = styled.div`
     a {
       color: #f4ede8;
       display: block;
-      margin-top: 25px;
+      margin-top: 15px;
       text-decoration: none;
       transition: color 0.2s;
 
@@ -45,7 +45,6 @@ export const Content = styled.div`
   > a {
     color: #ff9000;
     display: block;
-    margin-top: 25px;
     text-decoration: none;
     transition: color 0.2s;
 
