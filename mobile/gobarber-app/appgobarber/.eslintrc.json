@@ -33,17 +33,11 @@
     "prettier/prettier": "error",
     "import/no-unresolved": "off",
     "import/no-useless-path-segments": "off",
+    "no-unused-expressions": "off",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
+    "import/extensions": "off",
     "no-use-before-define": "off"
   },
   "settings": {
