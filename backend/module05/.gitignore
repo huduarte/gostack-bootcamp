@@ -3,6 +3,7 @@ node_modules/
 .idea/
 build/
 temp/
+yarn.lock/
 
 
 tmp/*
