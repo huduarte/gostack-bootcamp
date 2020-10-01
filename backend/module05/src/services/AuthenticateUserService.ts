@@ -43,7 +43,7 @@ class AuthenticateUserService {
             user,
             token,
         }
-        
+
     }
 }
 
