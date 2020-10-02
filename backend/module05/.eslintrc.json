@@ -19,6 +19,15 @@
       "prettier"
   ],
   "rules": {
+    "no-underscore-dangle": "off",
+    "prettier/prettier": "error",
+    "class-methodos-use-this": "off",
+    "no-usuless-constructor": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/no-unused-vars": ["error", {
+      "argsIgnorePattern": "_"
+    }],
+    "@typescrit-eslint/interface-name-prefix": ["error", {"prefixWithI": "always"}],
      "import/extensions": [
       "error",
       "ignorePackages",
