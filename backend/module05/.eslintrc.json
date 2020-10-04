@@ -22,20 +22,19 @@
     "no-underscore-dangle": "off",
     "prettier/prettier": "error",
     "class-methodos-use-this": "off",
-    "no-usuless-constructor": "off",
-    "@typescript-eslint/camelcase": "off",
+    "no-useless-constructor": "off",
+    "camelcase": "off",
+    "class-methods-use-this": "off",
     "@typescript-eslint/no-unused-vars": ["error", {
       "argsIgnorePattern": "_"
     }],
-    "@typescrit-eslint/interface-name-prefix": ["error", {"prefixWithI": "always"}],
      "import/extensions": [
       "error",
       "ignorePackages",
       {
         "ts": "never"
       }
-    ],
-    "prettier"
+    ]
   },
   "settings": {
     "import/resolver": {

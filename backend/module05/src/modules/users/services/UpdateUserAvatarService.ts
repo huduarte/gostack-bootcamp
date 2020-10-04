@@ -1,42 +1,47 @@
-import { getRepository }from 'typeorm';
+import { injectable, inject } from 'tsyringe';
 import path from 'path';
 import fs from 'fs';
 
-import User from '../infra/typeorm/entities/User';
 import UploadConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';
+import IUsersRepository from '../repositories/IUsersRepository';
 
-interface Request{
-    user_id: string;
-    avatarFilename: string;
+import User from '../infra/typeorm/entities/User';
+
+interface IRequest {
+  user_id: string;
+  avatarFilename: string;
 }
 
+@injectable()
+class UpdateUserAvatarService {
+  constructor(
+    @inject('UsersRepository')
+    private usersRepository: IUsersRepository,
+  ) {}
 
-class UpdateUserAvatarService{
-    public async execute({ user_id, avatarFilename }: Request): Promise<User>{
-        const usersRepository = getRepository(User);
+  public async execute({ user_id, avatarFilename }: IRequest): Promise<User> {
+    const user = await this.usersRepository.findById(user_id);
 
-        const user = await usersRepository.findOne(user_id);
-
-        if(!user){
-            throw new AppError('Only authenticated users can change avatar.', 401)
-        }
-
-        if(user.avatar){
-            const userAvatarFilePath = path.join(UploadConfig.directory, user.avatar);
-            const userAvatarFileExists = await fs.promises.stat(userAvatarFilePath);
-
-            if(userAvatarFileExists){
-                await fs.promises.unlink(userAvatarFilePath)
-            }
-        }
-
-        user.avatar = avatarFilename;
-
-        await usersRepository.save(user);
-
-        return user;
+    if (!user) {
+      throw new AppError('Only authenticated users can change avatar.', 401);
     }
+
+    if (user.avatar) {
+      const userAvatarFilePath = path.join(UploadConfig.directory, user.avatar);
+      const userAvatarFileExists = await fs.promises.stat(userAvatarFilePath);
+
+      if (userAvatarFileExists) {
+        await fs.promises.unlink(userAvatarFilePath);
+      }
+    }
+
+    user.avatar = avatarFilename;
+
+    await this.usersRepository.save(user);
+
+    return user;
+  }
 }
 
 export default UpdateUserAvatarService;

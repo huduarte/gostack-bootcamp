@@ -4,17 +4,17 @@ import { verify } from 'jsonwebtoken';
 import AppError from '@shared/errors/AppError';
 import authConfig from '@config/auth';
 
-interface TokenPayload{
-    iat: number;
-    exp: number;
-    sub: string;
+interface TokenPayload {
+  iat: number;
+  exp: number;
+  sub: string;
 }
 
 export default function ensureAuthenticaded(
   request: Request,
   response: Response,
   next: NextFunction,
-): void{
+): void {
   const authHeader = request.headers.authorization;
 
   if (!authHeader) {
