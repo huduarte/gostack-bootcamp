@@ -11,7 +11,6 @@ export default class ForgotPasswordController {
       SendForgotPasswordEmailService,
     );
 
-    console.log('funcionando controller 🚀');
     await sendForgotPasswordEmail.execute({
       email,
     });
