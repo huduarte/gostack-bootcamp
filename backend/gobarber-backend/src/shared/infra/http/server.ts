@@ -25,6 +25,7 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
     });
   }
 
+  console.log('\n\n\n\n\n');
   console.log(err);
 
   return response.status(500).json({
