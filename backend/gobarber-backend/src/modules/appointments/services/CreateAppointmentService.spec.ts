@@ -2,19 +2,23 @@ import AppError from '@shared/errors/AppError';
 import FakeNotificationsRepository from '@modules/notifications/repositories/fakes/FakeNotificationsRepository';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 import CreateAppointmentService from './CreateAppointmentService';
+import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
 
 let fakeAppointmentsRepository: FakeAppointmentsRepository;
 let fakeNotificationsRepository: FakeNotificationsRepository;
 let createAppointment: CreateAppointmentService;
+let fakeCacheProvider: FakeCacheProvider;
 
 describe('CreateAppointment', () => {
   beforeEach(() => {
     fakeAppointmentsRepository = new FakeAppointmentsRepository();
     fakeNotificationsRepository = new FakeNotificationsRepository();
+    fakeCacheProvider = new FakeCacheProvider();
 
     createAppointment = new CreateAppointmentService(
       fakeAppointmentsRepository,
       fakeNotificationsRepository,
+      fakeCacheProvider
     );
   });
 
@@ -34,19 +38,19 @@ describe('CreateAppointment', () => {
   });
 
   it('should not be able to create two appointments on the same time', async () => {
-    const appointmentDate = new Date(2020, 11, 10, 11);
+    const appointmentDate = new Date(2021, 4, 10, 11);
 
     await createAppointment.execute({
       date: appointmentDate,
-      provider_id: '123456',
-      user_id: 'user',
+      provider_id: 'provider-id',
+      user_id: 'user-id',
     });
 
     await expect(
       createAppointment.execute({
         date: appointmentDate,
-        provider_id: '123456',
-        user_id: 'user',
+        provider_id: 'provider-id',
+        user_id: 'user-id',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
