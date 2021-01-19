@@ -71,11 +71,11 @@ const Dashboard: React.FC = () => {
         ListHeaderComponent={
           <ProvidersListTitle>Cabeleireiros</ProvidersListTitle>
         }
-        renderItem={({item}) => (
-         <ProviderContainer onPress={() => navigateToCreateAppointment(item.id)}>
-           <ProviderAvatar source={{uri: item.avatar_url ? item.avatar_url : 'https://premierpesa.co.ke/public/assets/img/anonymous.png' }}/>
+        renderItem={({item: provider}) => (
+         <ProviderContainer onPress={() => navigateToCreateAppointment(provider.id)}>
+           <ProviderAvatar source={{uri: provider.avatar_url ? provider.avatar_url : 'https://premierpesa.co.ke/public/assets/img/anonymous.png' }}/>
            <ProviderInfo>
-             <ProviderName>{item.name}</ProviderName>
+             <ProviderName>{provider.name}</ProviderName>
 
              <ProviderMeta>
               <Icon name="calendar" size={14} color="#ff9000" />
